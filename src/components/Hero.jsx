@@ -3,35 +3,26 @@ function Hero() {
     <>
       <section
         id="hero"
-         className="bg-[url('/hero.jpg')] bg-cover bg-center bg-no-repeat w-full h-[100vh] md:h-[100vh] flex items-center justify-center"
-        style={{ backgroundImage: "url('/img/hero.jpg')" }}
+        className="relative w-full min-h-screen bg-cover bg-center bg-no-repeat bg-[url('/img/hero.jpg')] flex items-center justify-center"
       >
-        {/* Overlay escura */}
-        <div className="absolute inset-0 bg-black opacity-60"></div>
+        {/* Overlay escuro cobrindo tudo */}
+        <div className="absolute top-0 left-0 w-full h-full bg-black/60 z-0"></div>
 
         {/* Conteúdo */}
-        <div className="relative z-10 text-center text-white max-w-3xl px-6">
-          <h1
-              data-aos="fade-down"
-              data-aos-duration="1200"
-              className="text-4xl md:text-6xl font-bold break-words text-center px-4"
-            >
-              Contabilidade moderna para empresas e condomínios
+        <div className="relative z-10 text-center px-4 text-white max-w-2xl py-16 sm:py-24 md:py-32">
+          <h1 className="text-4xl font-bold md:text-6xl leading-tight">
+            Contabilidade moderna para empresas e condomínios
           </h1>
-          <p 
-          data-aos="fade-up"
-          data-aos-duration="1200"
-          className="text-lg md:text-xl mb-8">
+          <p className="mt-4 text-lg md:text-xl">
             Soluções contábeis inteligentes, administrativas e fiscais para você crescer com segurança.
           </p>
           <a
-            href="https://wa.me/47996279014"
+            href="https://wa.me/5547996279014"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative inline-block text-white font-bold py-3 px-6 rounded-lg overflow-hidden shadow-lg bg-orange-500 hover:bg-orange-600 transition"
+            className="inline-block mt-6 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-md transition-all duration-300"
           >
-            <span className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/60 to-white/20 opacity-0 group-hover:opacity-100 transition duration-500 blur-sm animate-pulse" />
-            <span className="relative z-10">Fale conosco no WhatsApp</span>
+            Fale conosco no WhatsApp
           </a>
         </div>
       </section>
