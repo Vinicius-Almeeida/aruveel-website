@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aruveel.vercel.app/sitemap.xml
