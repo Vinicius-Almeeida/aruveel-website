@@ -24,7 +24,7 @@ export default function NossosNumeros() {
     <section
       id="numeros"
       ref={sectionRef}
-      className="relative bg-[url('/background-numeros.jpg')] bg-cover bg-center bg-no-repeat w-full min-h-[60vh] flex items-center justify-center"
+      className="relative bg-[url('/bg-empresa.jpg')] bg-cover bg-center bg-no-repeat w-full min-h-[60vh] flex items-center justify-center"
     >
       <div className="absolute inset-0 bg-orange-500/80 z-0"></div>
 
