@@ -1,65 +1,47 @@
-import CountUp from "react-countup";
-import { useState } from "react";
-import { useInView } from "react-intersection-observer";
+import { useEffect, useRef, useState } from 'react';
+import useCountUp from '../hooks/useCountUp';
 
-function NossosNumeros() {
-  const [iniciado, setIniciado] = useState(false);
-  const { ref, inView } = useInView({
-    threshold: 0.6, // dispara quando 60% da seção estiver visível
-    triggerOnce: true,
-  });
+export default function NossosNumeros() {
+  const [startCount, setStartCount] = useState(false);
+  const sectionRef = useRef(null);
 
-  if (inView && !iniciado) setIniciado(true);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setStartCount(true);
+      },
+      { threshold: 0.6 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const anos = useCountUp(30, 1000, startCount);
+  const empresas = useCountUp(300, 1000, startCount);
+  const clientes = useCountUp(1000, 1000, startCount);
 
   return (
-    <>
     <section
-      ref={ref}
-      className="relative bg-fixed bg-center bg-cover text-white py-24 px-6"
-      style={{
-        backgroundImage: "url('/img/bg-empresa.png')",
-      }}
+      id="numeros"
+      ref={sectionRef}
+      className="relative bg-[url('/background-numeros.jpg')] bg-cover bg-center bg-no-repeat w-full min-h-[60vh] flex items-center justify-center"
     >
-      {/* Sobreposição laranja com opacidade */}
-      <div className="absolute inset-0 bg-orange-500 opacity-20"></div>
+      <div className="absolute inset-0 bg-orange-500/80 z-0"></div>
 
-      {/* Conteúdo */}
-      <div className="relative z-10 max-w-6xl mx-auto text-center grid grid-cols-1 sm:grid-cols-3 gap-12">
-        {/* Bloco 1 */}
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 text-white text-center gap-12 px-6 py-16 max-w-6xl mx-auto">
         <div>
-          <div className="text-5xl font-bold">
-            {iniciado && <CountUp end={30} duration={3} />}+
-          </div>
-          <p className="mt-2 text-lg">Anos de experiência</p>
+          <p className="text-5xl font-bold">+{anos}</p>
+          <p className="mt-2 text-lg font-medium">Anos de Experiência</p>
         </div>
-
-        {/* Bloco 2 */}
         <div>
-          <div className="text-5xl font-bold">
-            {iniciado && <CountUp end={300} duration={3} />}+
-          </div>
-          <p className="mt-2 text-lg">Empresas ativas</p>
+          <p className="text-5xl font-bold">+{empresas}</p>
+          <p className="mt-2 text-lg font-medium">Empresas Ativas</p>
         </div>
-
-        {/* Bloco 3 */}
         <div>
-          <div className="text-5xl font-bold">
-            {iniciado && <CountUp end={1000} duration={3} />}+
-          </div>
-          <p className="mt-2 text-lg">Clientes satisfeitos</p>
+          <p className="text-5xl font-bold">+{clientes}</p>
+          <p className="mt-2 text-lg font-medium">Clientes Satisfeitos</p>
         </div>
       </div>
-    </section>  
-    {/* Linha animada com gradiente dinâmico */}
-    <div
-      className="w-full h-[8px] animate-gradient-x bg-[length:300%_300%] bg-gradient-to-r from-gray-800 via-orange-500 to-gray-200"
-      style={{
-        backgroundSize: "300% 300%",
-        animation: "gradientShift 5s ease infinite"
-      }}
-    ></div>
-</>
+    </section>
   );
 }
-
-export default NossosNumeros;

@@ -10,15 +10,13 @@ function Services() {
   
     return (
       <>
-      <section
-          id="servicos"
-          className="relative py-24 px-6 bg-cover bg-no-repeat bg-center text-white"
-          style={{
-            backgroundImage: "url('/img/background-services.png')",
-          }}
-        >
-              {/* Camada de vidro fosco cobrindo a seção inteira */}
-              <div className="absolute inset-0 bg-black/30 backdrop-blur-sm z-0"></div>
+        <section
+            id="services"
+            className="relative bg-[url('/background-services.png')] bg-cover bg-center bg-no-repeat w-full py-20 px-4"
+              >
+               <div className="absolute inset-0 bg-white/60 backdrop-blur-md z-0"></div>
+
+              <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-3 gap-6"></div>
 
                 {/* Conteúdo da seção */}
                <div className="relative z-10 max-w-6xl mx-auto text-center">

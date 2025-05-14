@@ -3,7 +3,7 @@ function Hero() {
     <>
       <section
         id="hero"
-        className="relative min-h-screen bg-fixed bg-center bg-cover pt-24 flex items-center justify-center px-6"
+         className="bg-[url('/hero.jpg')] bg-cover bg-center bg-no-repeat w-full h-[100vh] md:h-[100vh] flex items-center justify-center"
         style={{ backgroundImage: "url('/img/hero.jpg')" }}
       >
         {/* Overlay escura */}
