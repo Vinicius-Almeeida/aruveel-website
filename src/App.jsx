@@ -7,12 +7,13 @@ import Blog from './components/Blog';
 import Contact from './components/Contact';
 import PopupIR from './components/PopupIR';
 import NossosNumeros from './components/NossosNumeros';
+import Testimonials from './components/Testimonials';
 
 
 
 function App() {
   return (
-    <div className=" bg-white text-gray-900 overflow-x-hidden">
+    <div className=" bg-white text-gray-900 overflow-x-hidden"> 
       <PopupIR />
       <Navbar />
       <Hero />
@@ -20,6 +21,7 @@ function App() {
       <About />
       <NossosNumeros />
       <Blog />
+      <Testimonials />
       <Contact />
       <Footer />
     </div>
